@@ -18,6 +18,10 @@ async function saveQRCode(dataInput, num, floor) {
             path = `./QR_CODE/Dolphin_01/Floor0${floor}/${key}-${floor}.png`
             dataStr = `${value.name}-${floor}-Dolphin_01`
         }
+        else if (num === 4) {
+            path = `./QR_CODE/Dolphin_02/Floor0${floor}/${key}-${floor}.png`
+            dataStr = `${value.name}-${floor}-Dolphin_02`
+        }
         await QRCode.toFile(
             path,
             [{ data: dataStr, mode: 'byte' }]
@@ -27,9 +31,10 @@ async function saveQRCode(dataInput, num, floor) {
 
 async function main() {
     for (let i = 1; i <= 2; i++) {
-        await saveQRCode(data.dataRoyal01, 1, i);
-        await saveQRCode(data.dataRoyal02, 2, i);
-        await saveQRCode(data.dataDolphin01, 3, i);
+        // await saveQRCode(data.dataRoyal01, 1, i);
+        // await saveQRCode(data.dataRoyal02, 2, i);
+        // await saveQRCode(data.dataDolphin01, 3, i);
+        await saveQRCode(data.dataDolphin02, 4, i);
     }
 }
 main();
